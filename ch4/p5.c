@@ -30,8 +30,11 @@ int main(int argc, char const *argv[]) {
       }
       else if( flag == TRUE )
       {
-        printf("%s\n", pre_Buffer );
-        //flag = FALSE;
+        printf("%s\n", cur_Buffer );
+        flag = FALSE;
+      }else if ( flag == FALSE )
+      {
+
       }
     }
   }
