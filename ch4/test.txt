@@ -7,6 +7,7 @@ And another.
 Still more.
 Almost done now --
 Almost done now --
+
 Another line.
 Still more.
 Finished!
