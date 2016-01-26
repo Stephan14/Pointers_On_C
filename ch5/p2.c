@@ -8,6 +8,7 @@ int encrypt( int ch, int base )
   ch %= 26;
   return ch + base;
 }
+
 int main(int argc, char const *argv[]) {
   int ch;
 
