@@ -17,6 +17,6 @@ int main(int argc, char const *argv[]) {
       }
       printf("%s\n", input );
   }
-  
+
   return 0;
 }
