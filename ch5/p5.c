@@ -9,7 +9,7 @@
 int creat_mask( int starting_bit, int ending_bit )
 {
   /*为保证进行逻辑移位而不是算术移位，将掩码声明为无符号类型*/
-  unsigned int mask = (unsigned) - 1;
+  unsigned int mask = (unsigned)-1;//强制类型转换
   mask >>= INI_BITS - (starting_bit - ending_bit + 1 );
   mask <<= ending_bit;
   return mask;
