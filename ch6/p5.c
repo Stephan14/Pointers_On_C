@@ -55,13 +55,22 @@ int main(int argc, char const *argv[]) {
 
   for( number = 3; number <= MAX_VALUE; number += 2 )
   {
-    bit_number = ( number - 3) / 2;//偶数
+    bit_number = ( number - 3 ) / 2;//偶数
     if( !test_bit(sieve, bit_number) )
       continue;
     while ( (bit_number += number) <= MAX_BIT_NUMBER )
     {
       clear_bit( sieve, bit_number );
     }
+    /*以上部分代码可以这样写
+    if( test_bit(sieve, bit_number) )
+    {
+      while ( (bit_number += number) <= MAX_BIT_NUMBER )
+      {
+        clear_bit( sieve, bit_number );
+      }
+    }
+    */
   }
 
   /*
