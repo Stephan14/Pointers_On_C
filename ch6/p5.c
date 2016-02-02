@@ -3,7 +3,7 @@
 
 #define MAX_VALUE 1000
 #define MAX_BIT_NUMBER ( (MAX_VALUE - 3) / 2)
-#define SIZE ( MAX_BIT_NUMBER / CHAR_BIT + 1)
+#define SIZE ( MAX_BIT_NUMBER / CHAR_BIT + 2)
 /*
   对字符数组的位操作
 */
@@ -41,8 +41,6 @@ void clear_bit( char bit_array[], unsigned int bit_number )
 }
 
 
-
-
 int main(int argc, char const *argv[]) {
   char sieve[ SIZE ];
   int number;
@@ -60,7 +58,8 @@ int main(int argc, char const *argv[]) {
     bit_number = ( number - 3) / 2;//偶数
     if( !test_bit(sieve, bit_number) )
       continue;
-    while ( (bit_number += number) <= MAX_VALUE ) {
+    while ( (bit_number += number) <= MAX_BIT_NUMBER )
+    {
       clear_bit( sieve, bit_number );
     }
   }
