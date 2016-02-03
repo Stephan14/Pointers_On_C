@@ -50,7 +50,7 @@ int main(int argc, char const *argv[]) {
     初始化
   */
   for( sp = &sieve[0]; sp < &sieve[ SIZE ]; )
-    *sp++ = 0xff;
+    *sp++ = 0xff;//使用16进制初始化字符变量
 
 
   for( number = 3; number <= MAX_VALUE; number += 2 )
