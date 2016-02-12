@@ -1,0 +1,34 @@
+#include<stdio.h>
+/*
+  用递归计算M和N的最大公约数
+  输入：
+    m，n（m和n之间大小无所谓）
+  输出：
+    int类型的最大公约数
+*/
+int gcd( int m, int n )
+{
+  int r;
+  if( m <= 0 || n <= 0 )   return 0;
+  r = m % n;
+  return r > 0 ? gcd( n, r ) : n;
+}
+
+
+/*
+  用迭代计算M和N的最大公约数
+  输入：
+    m，n
+  输出：
+
+*/
+int gcd2( int m, int n )
+{
+  
+}
+
+
+int main(int argc, char const *argv[]) {
+  printf("%d\n",  gcd( 5, 12 ) );
+  return 0;
+}
