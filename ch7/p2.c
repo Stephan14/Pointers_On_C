@@ -24,11 +24,24 @@ int gcd( int m, int n )
 */
 int gcd2( int m, int n )
 {
-  
+  int r;
+
+  if ( m <= 0 || n <= 0 )
+  {
+    return 0;
+  }
+
+  do {
+    r = m % n;
+    m = n;
+    n = r;
+  } while( r > 0 );
+
+  return m;
 }
 
 
 int main(int argc, char const *argv[]) {
-  printf("%d\n",  gcd( 5, 12 ) );
+  printf("%d\n",  gcd2( 5, 12 ) );
   return 0;
 }
