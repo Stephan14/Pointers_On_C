@@ -43,10 +43,6 @@ int  my_printf( char *format , ... )
         }
         break;
       case 'c':
-        putchar( va_arg( var_list, int ));
-        break;
-      default:
-        printf("不支持%%%c的输入格式\n", *(--format) );
         num--;
         break;
     }
