@@ -11,6 +11,7 @@ int max_list( int first_num, ... )
     int temp_arg;
 
     va_start( var_arg, first_num );//2
+    
     while ( (temp_arg = va_arg( var_arg , int )) > 0 )//3
     {
       if ( temp_arg > max )
