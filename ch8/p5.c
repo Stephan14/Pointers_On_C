@@ -7,9 +7,10 @@ void matrix_multiply( int *m1, int *m2, int *r, int x, int y, int z)
   int num_m2 = y * z;
   int line_m1, line_m2, row_m1, row_m2;
   int temp_result = 0;
-
+  //第一个数组的横坐标
   for( line_m1 = 0; line_m1 < x; line_m1++ )
   {
+    //第二个数组的纵坐标
     for( row_m2 = 0; row_m2 < z; row_m2++ )
     {
       //第一个数组的纵坐标和第二个数组的横坐标同时变化
