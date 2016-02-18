@@ -1,11 +1,12 @@
 #include<stdio.h>
 
 
-int identity_matrix( int (*matrix)[10], int n )
+int identity_matrix( int (*matrix)[10], int size )
 {
   int x, y;
-  for( x = 0, y = 0; x < n; x++,y++ )
+  for( x = 0, y = 0; x < size; x++,y++ )
   {
+    //printf("x = %d, y = %d\n", x , y );
     if( matrix[x][y] != 1 )
       return 0;
   }
@@ -25,9 +26,9 @@ int main(int argc, char const *argv[]) {
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}
   };
   if ( identity_matrix( matrix, 10 ) ) {
-    printf("\n"  );
+    printf( "该矩阵是单位矩阵\n" );
   }
   else
-    printf("dfgdddddddddddddd\n");
+    printf("该矩阵不是单位矩阵\n");
   return 0;
 }
