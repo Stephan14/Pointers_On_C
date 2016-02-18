@@ -33,6 +33,7 @@ int array_offset( int arrayinfo[], ... )
   return loc;
 }
 
+
 int main(int argc, char const *argv[]) {
   int arrayinfo[] = { 3, 4, 6, 1, 5, -3, 3 };
 
