@@ -41,11 +41,13 @@ int prepare_key( char *key )
   }
 }
 
+
 int main(int argc, char const *argv[]) {
   char str[KEY_LENGTH] = "trailblazers";
   //如果声明成char str[KEY_LENGTH] = "trailblazers";编译后显示
   //*** stack smashing detected ***: ./a.out terminated
   prepare_key( str );
   printf( "%s\n", str );
+  printf( "%u", strlen( str ) );
   return 0;
 }
