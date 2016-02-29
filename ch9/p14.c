@@ -85,5 +85,6 @@ int main(int argc, char const *argv[]) {
   decrypt( str, key );
 
   printf("%s\n", str );
+
   return 0;
 }
