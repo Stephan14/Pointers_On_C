@@ -1,5 +1,25 @@
-1.
-2.
+1.struct {                            struct {
+    int a;                                    int a;
+    char b;                                   char b;
+    float c;                                  float c;
+  } y[20], *z;                        } x;
+  以上连个声明虽然成员列表完全相同，但是y，z和x属于不同的类型，所以，
+  z = &x;是非法的。
+2.为了使y，z和x属于同一个类型，可以使用一下两种方法进行声明：
+  1)typedef struct {
+    int a;
+    char b;
+    float c;
+  } Simple;
+  Simple x;
+  Simple y[20], *z;
+  2)struct Simple {
+    int a;
+    char b;
+    float c;
+  };
+  struct Simple x;
+  strcut Simple y[20], *z;
 3.
 4.
 5.
