@@ -63,7 +63,7 @@ struct Node *revert_list( struct Node *top )
 {
   struct Node *last = NULL;
   struct Node *current = NULL;
-  
+
   while( top != NULL )
   {
     current = top;
@@ -73,6 +73,18 @@ struct Node *revert_list( struct Node *top )
   }
 
   return last;
+/*
+  struct NODE *previous;
+  struct NODE *next;
+
+  for( previous = NULL; current != NULL; current = next ){
+    next = current–>link;
+    current–>link = previous;
+    previous = current;
+  }
+
+  return previous;
+*/
 }
 int main(int argc, char const *argv[]) {
   struct Node *top = build_list(2);
