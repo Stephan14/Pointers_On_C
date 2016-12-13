@@ -1,0 +1,72 @@
+1.预处理阶段进行的工作：删除注释、插入被#include指令包含的文件的内容、定义和替换由#define指定
+定义的符号以及确定代码的部分内容是否应该根据一些条件编译指令进行编译
+2.利用相邻的字符串可以被自动连接这个特性编写以下宏定义：
+#define DEBUGP_PRINT printf( "File %s line %d:"   \
+                             " x=%d, y=%d, z=%d", \
+                             __FILE__, __LINE__,  \
+                            x, y, z );
+3.#define name( parameter-list ) stuff 其中参数列表的左括号必须与name紧邻,否则当做stuff的一部分
+4.所有用于对数值表达式进行求值的宏定义都应该加上多层的括号（以每一个变量为单位增加括号）避免在使用宏时
+由于参数中的操作符或者邻近的操作符之间不可预料的相互作用
+5.在程序中扩展#define定义符号和宏时的步骤：
+    1.在调用宏时，首先对参数进行检查，看看是否包含了任何由#define定义的符号。如果是，他们首先被替换
+    2.替换文本随后被插入到原来文本的位置，对于宏，参数名被值所替代
+    3.最后在对结果文本进行扫描，看看它是否包含任何由#define定义的符号。如果是，重新处理上述过程
+6.将宏参数插入到字符串常量中的两个方法：
+    1.利用相邻的字符串可以被自动连接这个特性，例如：
+        #define PRINT( FORMAT, VALUE )         \
+            printf( "The value is " FORMAT "\n", VALUE )
+        PRINT( "%d", x + 3 );
+    这种技巧之后当字符串常量作为宏参数给出时才能使用
+    2.使用#将一个宏参数转化为一个字符串，例如：
+        #define PRINT( FORMAT, VALUE )         \
+                printf( "The value of " #VALUE \
+                        " is " FORMAT "\n", VALUE )
+        PRINT( "%d", x + 3 );
+    还有##将两边的符号连接成一个符号，但是要保证连接之后的变量是合法的
+    #和##可以组织宏的递归展开
+7.宏与参数
+宏适合那种执行具体功能的代码数量比较少的场景，因为如果使用函数的话，有可能函数的调用和返回的开销比执行这段功能的开销更大一些；还有一个原因就是函数的参数必须为声明为一个特定的类型,必须适用于特定的类型，也就是说宏与类型无关。例如：
+#define MALLOC( n, type )    \
+        ( (type *)malloc( (n) * sizeof( type ) ) )
+8.注意:宏一般都没有分号结尾，分号一般出现在调用宏的语句中
+9.#undef
+10.编译器中-U和-D参
+11.条件编译：选择一部分代码被使用另一部分代码被忽略,以便选择不同的代码部分
+#if constant-experssion
+    statements
+#elif constant-experssion
+    other statements
+#else
+    other statements
+#enfif
+
+12.测试是否被定义
+#if defined( symbol )
+#ifdef symbol
+
+#if !defined(symbol)
+#ifudef symbol
+13.嵌套指令
+#ifdef defined( OS_UNIX )
+       #ifdef OPTION1
+              unix_version_of_option1();
+       #endif
+       #ifdef OPTION2
+              unix_version_of_option2();
+       #endif
+#elif  denfied( OS_MSDOSC )
+       #ifdef OPTION2
+              msdos_version_of_option2();
+       #endif
+#endif   /*添加defined相关的注释*/
+14.文件包含
+预处理器删除#include命令，用被包含的头文件替换；如果一个头文件被包含10次，那么它将被编译10次
+使用#include命令会带来一定的开销，但是，这种开销不是很高，而且是编译时的开销，对运行没有影响。
+15.为了避免文件的相互之间重复包含，可以使用如下模式的条件编译：
+#ifndef _XXXXXX_H_
+#define _XXXXXX_H_  / #define _XXXXXX_H_ 1
+
+#endif
+16.为了防止出现表达式中可能与宏有关的错误，应该在宏完整定义的两边加上括号，同样在宏的每个参数两边也需要加上括号
+
