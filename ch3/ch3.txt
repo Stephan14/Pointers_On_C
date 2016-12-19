@@ -16,7 +16,12 @@ double类型）或者一个f（表示float类型）；在声明的时候除了lo
 10.相等的整型声明
 11.如果数组的下标是由那些已知的正确的值计算出来的，则不用进行下标检查，如果是
 从用户输入的数据产生的则需要检查下标是否越界。
-12.使用typedef来创建新类型的名字而不是使用#define。
+12.使用typedef来创建新类型的名字而不是使用#define,因为后者无法处理指针类型，例如：
+#define d_ptr_to_char char*
+d_ptr_to_char a,b   //其中a为指针类型，b为字符类型
+还可以像如下方式使用：
+typedef __int8 int8_t;
+typedef unsigned __int8 uint8_t;
 13.指向整型常量的指针：int const *p
    指向整型的常量指针：int *const p
    指向整型常量的常量指针：int const * const p
