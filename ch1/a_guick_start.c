@@ -91,6 +91,11 @@ int main()
 	
 	while( fgets( input, sizeof(input), stdin ) != NULL && input[0] != '\n')
 	{
+		/*
+		*删去不想要的换行
+		*/
+		if(input[strlen(input)-1]=='\n')
+			input[strlen(input)-1]='\0';
 		printf("输入字符串：%s\n", input );
 		rearrange( output, input, columns, num );
 		printf("输出字符串：%s\n", output );
